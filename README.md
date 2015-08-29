@@ -12,8 +12,6 @@ Deploy to the dist folder
 
 Requires browserify,uglifyjs
 
-Use `npm install` for other prerequisites
-
 
 ## Demo
 
