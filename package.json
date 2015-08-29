@@ -1,0 +1,17 @@
+{
+  "name": "tumblrgraph2",
+  "version": "1.0.0",
+  "description": "Graph tumblr reblogs with cytoscape.js ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "network",
+    "tumblr",
+    "graph",
+    "cytoscape"
+  ],
+  "author": "Colin Diesh",
+  "license": "ISC"
+}
