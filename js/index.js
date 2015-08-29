@@ -33,11 +33,16 @@ domready(function(){
   function submitForm() {
     var nodes={};
     var edges={};
-    document.querySelector("#notes").value.split("\n").forEach(function(line) {
+    var notes=document.querySelector("#notes").value;
+    var layout=document.querySelector("#layout").value;
+    
+    notes.split("\n").forEach(function(line) {
       var matches;
       if(matches=line.match(/(\S+) reblogged this from (\S+)/)) {
-        if(!nodes[matches[1]]) nodes[matches[1]]={id: matches[1], name: matches[1]};
-        if(!nodes[matches[2]]) nodes[matches[2]]={id: matches[2], name: matches[2]};
+        if(!nodes[matches[1]]) nodes[matches[1]]={id: matches[1], name: matches[1], score:1};
+        else nodes[matches[1]].score+=1;
+        if(!nodes[matches[2]]) nodes[matches[2]]={id: matches[2], name: matches[2], score:1};
+        else nodes[matches[2]].score+=1;
         if(!edges[matches[1]+','+matches[2]]) edges[matches[1]+','+matches[2]]={source:matches[1],target:matches[2]};
       }
     });
@@ -59,13 +64,12 @@ domready(function(){
         "edges": edges_cy
       },
       layout: {
-         name: 'springy',
-         padding: 10
+         name: layout,
+         padding: 10,
+         randomize: false
       },
       ready: function(){
         var cy=this;
-        cy.panningEnabled(false);
-        cy.zoomingEnabled(false);
       }
     });
   }
