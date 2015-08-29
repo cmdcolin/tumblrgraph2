@@ -29,10 +29,10 @@ domready(function(){
     });
 
 
-  var nodes={};
-  var edges={};
-  document.querySelector("#myform").addEventListener("submit", function(e){
-    e.preventDefault();
+  
+  function submitForm() {
+    var nodes={};
+    var edges={};
     document.querySelector("#notes").value.split("\n").forEach(function(line) {
       var matches;
       if(matches=line.match(/(\S+) reblogged this from (\S+)/)) {
@@ -68,6 +68,12 @@ domready(function(){
         cy.zoomingEnabled(false);
       }
     });
+  }
+  document.querySelector("#myform").addEventListener("submit", function(e){
+    e.preventDefault();
+    submitForm();
   });
+  submitForm();
+
 });
 
