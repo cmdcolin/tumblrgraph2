@@ -8,7 +8,6 @@
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/arbor.js"></script>
 <script src="js/dagre.min.js"></script>
-<script src="js/rhill-voronoi-core.min.js"></script>
 
 </head>
 <body style="font: 14px helvetica neue, helvetica, arial, sans-serif;">
@@ -17,6 +16,10 @@
 
 <div style="float:left;">
 <form id="myform">
+<label>Color by distance from root?</label>
+<input type="checkbox" id="color_by_bfs" checked="checked"></input>
+<label>Layout time (ms)</label>
+<input type="text" id="layout_time" value="10000"></input>
 <label>Select layout</label>
 <select id="layout">
 <option value="cola">cola</option>
@@ -67,7 +70,7 @@ userA1 reblogged this from originalposter
 originalposter posted this</textarea>
 
 <input type="submit" name="Submit"></input>
-
+<p id="status">Not running</p>
 </form>
 </div>
 <div style="float:left">
