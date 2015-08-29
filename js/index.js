@@ -53,7 +53,7 @@ domready(function(){
       layout: {
          name: layout,
          padding: 10,
-         randomize: false,
+         randomize: true,
          maxSimulationTime: 10000,
          animate: true
       },
