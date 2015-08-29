@@ -32,22 +32,47 @@ domready(function(){ // on dom ready
       });
 
 
-    cytoscape({
-      container: document.getElementById('cy'),
-      style: cytoscape_style,
-      elements: seinfeld3,
-      //elements: data.seinfeld_orig,
-      layout: {
-        name: 'springy',
-        padding: 10,
-        randomize:false 
-      },
-      ready: function(){
-        var cy=this;
-        cy.panningEnabled(false);
-        cy.zoomingEnabled(false);
-      }
-    });
+    var nodes={};
+    var edges={};
+    document.querySelector("#myform").addEventListener("submit", function(e){
+        e.preventDefault();    //stop form from submitting
+        var lines=document.querySelector("#notes").value.split("\n");
+        lines.forEach(function(line) {
+            var matches;
+            if(matches=line.match(/(\S+) reblogged this from (\S+)/)) {
+                if(!nodes[matches[1]]) nodes[matches[1]]=1;
+                if(!nodes[matches[2]]) nodes[matches[2]]=1;
+                if(!edges[matches[1]+','+matches[2]]) edges[matches[1]+','+matches[2]]={source:matches[1],target:matches[2]};
+            }
+        });
 
+        var nodes_cy=[];
+        var edges_cy=[];
+        for(node in Object.keys(nodes)) {
+            nodes_cy.push({data:{id: nodes[node]}});
+        }
+        for(edge in Object.keys(edges)) {
+            edges_cy.push({data:edges[edge]});
+        }
+        console.log(nodes_cy);
+        console.log(edges_cy);
+    });
+//    cytoscape({
+//      container: document.getElementById('cy'),
+//      style: cytoscape_style,
+//      elements: seinfeld3,
+//      //elements: data.seinfeld_orig,
+//      layout: {
+//        name: 'springy',
+//        padding: 10,
+//        randomize:false 
+//      },
+//      ready: function(){
+//        var cy=this;
+//        cy.panningEnabled(false);
+//        cy.zoomingEnabled(false);
+//      }
+//    });
+//
 }); // on dom ready
 
