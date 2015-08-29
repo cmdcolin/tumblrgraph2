@@ -15,6 +15,8 @@
   "author": "Colin Diesh",
   "license": "ISC",
   "devDependencies": {
-    "cytoscape": "^2.4.6"
-  }
+    "cytoscape": "^2.4.6",
+    "domready": "^1.0.8"
+  },
+  "repository": "https://github.com/cmdcolin/tumblrgraph2.git"
 }
