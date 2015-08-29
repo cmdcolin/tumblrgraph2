@@ -2,34 +2,6 @@ var cytoscape=require('cytoscape');
 var domready=require('domready');
 
 domready(function(){
-  var cytoscape_style= cytoscape.stylesheet()
-  .selector('node')
-    .css({
-      'content': 'data(name)',
-      'text-valign': 'center',
-      'color': 'white',
-      'text-outline-width': 2,
-      'text-outline-color': '#888'
-    })
-  .selector('edge')
-    .css({
-      'target-arrow-shape': 'triangle'
-    })
-  .selector(':selected')
-    .css({
-      'background-color': 'black',
-      'line-color': 'black',
-      'target-arrow-color': 'black',
-      'source-arrow-color': 'black'
-    })
-  .selector('.faded')
-    .css({
-      'opacity': 0.25,
-      'text-opacity': 0
-    });
-
-
-  
   function submitForm() {
     var nodes={};
     var edges={};
@@ -40,9 +12,9 @@ domready(function(){
       var matches;
       if(matches=line.match(/(\S+) reblogged this from (\S+)/)) {
         if(!nodes[matches[1]]) nodes[matches[1]]={id: matches[1], name: matches[1], score:1};
-        else nodes[matches[1]].score+=1;
+        else nodes[matches[1]].score+=5;
         if(!nodes[matches[2]]) nodes[matches[2]]={id: matches[2], name: matches[2], score:1};
-        else nodes[matches[2]].score+=1;
+        else nodes[matches[2]].score+=5;
         if(!edges[matches[1]+','+matches[2]]) edges[matches[1]+','+matches[2]]={source:matches[1],target:matches[2]};
       }
     });
@@ -58,7 +30,22 @@ domready(function(){
 
     cytoscape({
       container: document.getElementById('cy'),
-      style: cytoscape_style,
+      style: 
+        cytoscape.stylesheet()
+          .selector('node')
+            .style({
+              'content': 'data(name)',
+              'text-valign': 'center',
+              'background-color': function(elt) { console.log(elt); return 'hsl('+elt.data('score')+',80%,55%)'; },
+              'text-outline-width': 2,
+              'text-outline-color': '#000',
+              'color': '#fff'
+            })
+          .selector('edge')
+            .css({
+              'target-arrow-shape': 'triangle'
+            })
+          ,
       elements: {
         "nodes": nodes_cy,
         "edges": edges_cy
