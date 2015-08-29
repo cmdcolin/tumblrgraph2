@@ -66,7 +66,9 @@ domready(function(){
       layout: {
          name: layout,
          padding: 10,
-         randomize: false
+         randomize: false,
+         maxSimulationTime: 10000,
+         animate: true
       },
       ready: function(){
         var cy=this;

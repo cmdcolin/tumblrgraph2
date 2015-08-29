@@ -12,4 +12,3 @@ cp css/style.css dist/css/style.css
 cp js/springy.js dist/js/springy.js
 cp js/seedrandom.js dist/js/seedrandom.js
 cp index.html dist
-cp -R dist/ ~/Sites/app
