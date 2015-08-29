@@ -36,7 +36,7 @@ domready(function(){
             .style({
               'content': 'data(name)',
               'text-valign': 'center',
-              'background-color': function(elt) { console.log(elt); return 'hsl('+elt.data('score')+',80%,55%)'; },
+              'background-color': function(elt) { return 'hsl('+elt.data('score')+',80%,55%)'; },
               'text-outline-width': 2,
               'text-outline-color': '#000',
               'color': '#fff'
