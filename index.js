@@ -115,12 +115,12 @@ domready(function(){
 
 
   $("#save_button").on('click', function(e) {
-    window.open(cy.png({scale:3}));
+    $("#output").append($("<a/>").attr({href: cy.png({scale: 3})}).append("Download picture"));
   });
 
   $("#animate_graph").on('click', function(e) {
     var animate_speed=$("#animate_speed").val();
-    var encoder = new Whammy.Video(20); 
+    var encoder = new Whammy.Video(1000/animate_speed); 
     var collection = cy.elements("node");
     collection.forEach(function(elt) {
       elt.style('visibility','hidden');
@@ -142,7 +142,8 @@ domready(function(){
       else {
         var output=encoder.compile();
         var url = window.URL.createObjectURL(output);
-        window.open(url);
+        $("#output").empty();
+        $("#output").append($("<a/>").attr({href: url,download: "video.webm"}).append("Download video"));
       }
     }
     addNode(arr,0);
