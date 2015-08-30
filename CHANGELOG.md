@@ -1,8 +1,11 @@
-# Version 1.0.1-SNAPSHOT
+# Version 1.0.1
 
 ## Features
 
 - Added save as png button (high res)
+- Added Gulp build process
+- Added some colors to indicate the optimizing layout process
+
 
 # Version 1.0.0
 

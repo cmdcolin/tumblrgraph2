@@ -5,10 +5,13 @@ Graph tumblr reblogs with cytoscape.js
 
 ## Build
 
-Deploy to the dist folder
+To deploy to the dist folder
 
+    gulp
 
-    bin/build.sh
+Or un-minified
+
+    gulp devmode
 
 Requires browserify,uglifyjs
 
