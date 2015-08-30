@@ -96,7 +96,7 @@ domready(function(){
 
 
     // color by distance from original poster using BFS
-    if($("#color_by_bfs").val()=="on") {
+    if($("#color_by_bfs").prop('checked')) {
       var max_depth=1;
       var bfs = cy.elements().bfs('#'+original_poster, function(i, depth){
         if(depth>max_depth) { max_depth=depth; }
