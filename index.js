@@ -1,7 +1,6 @@
 var cytoscape=require('cytoscape');
 var domready=require('domready');
 var _=require('underscore');
-var spinner=require('spin');
 domready(function(){
   var timer;
   var cy;
@@ -10,7 +9,6 @@ domready(function(){
     var nodes={};
     var edges={};
     var original_poster;
-    var spinner = new spinner($("#status"));
 
     // user form
     var notes=$("#notes").val();
@@ -90,9 +88,10 @@ domready(function(){
 
     // update status
     $("#status").text("Optimizing layout");
+    $("#status").css("background-color","hsl(20,80%,70%)");
     timer=setTimeout(function() {
       layout_cy.stop();
-      spinner.stop();
+      $("#status").css("background-color","hsl(120,80%,70%)");
       $("#status").text("Done with layout");
     }, layout_time);
 
@@ -120,14 +119,11 @@ domready(function(){
   });
 
 
-  target.appendChild(spinner.el)
-    $("#save_button").on('click', function(e) {
-    spinner.spin();
+  $("#save_button").on('click', function(e) {
     window.open(cy.png({scale:3}));
   });
 
 
   submitForm();
-  spinner.spin();
 });
 
