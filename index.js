@@ -4,6 +4,7 @@ var _=require('underscore');
 
 domready(function(){
   var timer;
+  var cy;
   function submitForm() {
     // input nodes/edges for reblogs and OP
     var nodes={};
@@ -64,7 +65,7 @@ domready(function(){
         });
    
     // create cytoscape instance
-    var cy=cytoscape({
+    cy=cytoscape({
       container: document.getElementById('cy'),
       style: stylesheet_cy,
       elements: {
@@ -115,6 +116,13 @@ domready(function(){
     submitForm();
     return false;
   });
+
+
+  $("#save_button").on('click', function(e) {
+     window.open(cy.png());
+  });
+
+
   submitForm();
 
 });
