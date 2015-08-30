@@ -16,7 +16,8 @@
   "license": "ISC",
   "devDependencies": {
     "cytoscape": "^2.4.6",
-    "domready": "^1.0.8"
+    "domready": "^1.0.8",
+    "underscore": "^1.8.3"
   },
   "repository": "https://github.com/cmdcolin/tumblrgraph2.git"
 }
