@@ -4,11 +4,11 @@ var _=require('underscore');
 domready(function(){
   var timer;
   var cy;
+  var original_poster;
   function submitForm() {
     // input nodes/edges for reblogs and OP
     var nodes={};
     var edges={};
-    var original_poster;
 
     // user form
     var notes=$("#notes").val();
@@ -118,7 +118,39 @@ domready(function(){
     window.open(cy.png({scale:3}));
   });
 
+  $("#animate_graph").on('click', function(e) {
+    var animate_speed=$("#animate_speed").val();
+    var encoder = new Whammy.Video(15); 
+    var collection = cy.elements("node");
+    collection.forEach(function(elt) {
+      elt.style('visibility','hidden');
+    });
+
+    var arr=[];
+    var bfs = cy.elements().bfs('#'+original_poster, function(i, depth){
+      arr.push(this);
+    }, false);
+
+    function addNode(g,i) {
+      if(i<g.length) {
+        setTimeout(function() {
+          g[i].style('visibility','visible');
+          encoder.add($("[data-id=layer2-node]")[0]);
+          addNode(g,i+1);
+        }, animate_speed);
+      }
+      else {
+        var output=encoder.compile();
+        var url = window.URL.createObjectURL(output);
+        window.open(url);
+      }
+    }
+    addNode(arr,0);
+  });
+
 
   submitForm();
 });
+
+
 

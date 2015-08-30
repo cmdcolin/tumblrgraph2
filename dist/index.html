@@ -8,6 +8,7 @@
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/arbor.js"></script>
 <script src="js/dagre.min.js"></script>
+<script src="js/whammy.js"></script>
 
 </head>
 <body style="font: 14px helvetica neue, helvetica, arial, sans-serif;">
@@ -20,6 +21,8 @@
 <input type="checkbox" id="color_by_bfs" checked="checked"></input>
 <label>Layout time (ms)</label>
 <input type="text" id="layout_time" value="10000"></input>
+<label>Animate speed (ms)</label>
+<input type="text" id="animate_speed" value="100"></input>
 <label>Select layout</label>
 <select id="layout">
 <option value="cola">cola</option>
@@ -71,6 +74,7 @@ originalposter posted this</textarea>
 
 <input type="submit" name="Submit"></input>
 <input type="button" value="Save as PNG" id="save_button"></input>
+<input type="button" value="Animate" id="animate_graph"></input>
 <p id="status">Not running</p>
 </form>
 </div>
@@ -80,6 +84,6 @@ originalposter posted this</textarea>
 
 <a href="https://github.com/cmdcolin/tumblrgraph2">View on GitHub</a>
 <p>Instructions: copy and paste the notes from a given post on tumblr (basically, go the the actual URL for the post and copy them) and then use the custom settings here to customize the layout. Some graph layouts require a "simulation" phase so the layout time parameter is configurable, during which time the text will say "Optimizing layout". You can interact with the nodes before and after this phase to affect the overall layout.</p>
-<p>Version 1.0.1</p>
+<p>Version 1.0.2-SNAPSHOT</p>
 </body>
 </html>

@@ -1,3 +1,11 @@
+# Version 1.0.2-SNAPSHOT
+
+## Features
+
+- Add animation
+- Add HTML5 video export of animation
+
+
 # Version 1.0.1
 
 ## Features
