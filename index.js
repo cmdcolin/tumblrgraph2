@@ -38,14 +38,8 @@ domready(function(){
       }
     });
 
-    var nodes_cy=_.map(nodes, function(node) {
-      return {"data":node};
-    });
-    var edges_cy=_.map(edges,function(edge) {
-      return {"data":edge};
-    });
-    console.log(edges_cy);
-    console.log(nodes_cy);
+    var nodes_cy=_.map(nodes, function(node) { return {"data":node}; });
+    var edges_cy=_.map(edges,function(edge) { return {"data":edge}; });
 
 
     // set boring stylesheet
@@ -87,7 +81,8 @@ domready(function(){
 
 
     // update status
-    $("#status").text("Optimizing layout");
+    var count = 0;
+    $("#status").text("Optimizing layout ...");
     $("#status").css("background-color","hsl(20,80%,70%)");
     timer=setTimeout(function() {
       layout_cy.stop();

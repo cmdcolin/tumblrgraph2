@@ -25,7 +25,30 @@ gulp.task('build', function() {
   return 1
 });
 
+
+
+gulp.task('debug', function() {
+  gulp.src([
+    'js/*.js'
+  ]).pipe(gulp.dest('dist/js'))
+
+
+  gulp.src([
+    '*.html'
+  ]).pipe(gulp.dest('dist'))
+
+
+  gulp.src([
+    'index.js'
+  ]).pipe(gulp_browserify())
+    .pipe(gulp.dest('dist'));
+
+
+  return 1
+});
+
 gulp.task('default', ['build']);
+gulp.task('devmode', ['debug']);
 
 
 // Handle the error
