@@ -119,7 +119,7 @@ domready(function(){
 
 
   $("#save_button").on('click', function(e) {
-     window.open(cy.png());
+     window.open(cy.png({scale:3}));
   });
 
 

@@ -2,7 +2,7 @@
 
 ## Features
 
-- Added save button
+- Added save as png button (high res)
 
 # Version 1.0.0
 
