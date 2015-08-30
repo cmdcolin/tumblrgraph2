@@ -1,3 +1,9 @@
+# Version 1.0.1-SNAPSHOT
+
+## Features
+
+- Added save button
+
 # Version 1.0.0
 
 ## Features
