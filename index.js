@@ -120,7 +120,7 @@ domready(function(){
 
   $("#animate_graph").on('click', function(e) {
     var animate_speed=$("#animate_speed").val();
-    var encoder = new Whammy.Video(15); 
+    var encoder = new Whammy.Video(20); 
     var collection = cy.elements("node");
     collection.forEach(function(elt) {
       elt.style('visibility','hidden');
