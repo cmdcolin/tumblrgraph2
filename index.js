@@ -4,7 +4,7 @@ var domready = require('domready');
 var _ = require('underscore');
 
 var cycola = require('cytoscape-cola');
-var cola = require('cola2');
+var cola = require('webcola');
 
 var cydagre = require('cytoscape-dagre');
 var dagre = require('dagre');
@@ -22,8 +22,6 @@ domready(function(){
   var cy;
   var original_poster;
 
-
-  console.log("STARTUP");
   function submitForm() {
     // input nodes/edges for reblogs and OP
     var nodes={};
