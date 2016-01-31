@@ -1,10 +1,20 @@
-var when=require('when');
-var cytoscape=require('cytoscape');
-var domready=require('domready');
-var _=require('underscore');
-var cycola = require('cytoscape-cola');
-//var cola = require('webcola');
+var when = require('when');
+var cytoscape = require('cytoscape');
+var domready = require('domready');
+var _ = require('underscore');
 
+var cycola = require('cytoscape-cola');
+var cola = require('cola2');
+
+var cydagre = require('cytoscape-dagre');
+var dagre = require('dagre');
+
+var cyspringy = require('cytoscape-springy');
+var springy = require('springy');
+
+cycola( cytoscape, cola ); // register extension
+cydagre( cytoscape, dagre ); // register extension
+cyspringy( cytoscape, springy ); // register extension
 
 
 domready(function(){
@@ -13,9 +23,6 @@ domready(function(){
   var original_poster;
 
 
-  cycola( cytoscape, cola ); // register extension
-  //cycola( cytoscape, dagre ); // register extension
-  //cycola( cytoscape, Springy ); // register extension
   console.log("STARTUP");
   function submitForm() {
     // input nodes/edges for reblogs and OP
