@@ -4,23 +4,23 @@ var domready = require('domready');
 var _ = require('underscore');
 
 var cycola = require('cytoscape-cola');
-var cola = require('webcola');
-
+var cyarbor = require('cytoscape-arbor');
 var cydagre = require('cytoscape-dagre');
-var dagre = require('dagre');
-
 var cyspringy = require('cytoscape-springy');
+
+// layouts that have npm, others included via source
+var dagre = require('dagre');
 var springy = require('springy');
-
-cycola( cytoscape, cola ); // register extension
-cydagre( cytoscape, dagre ); // register extension
-cyspringy( cytoscape, springy ); // register extension
-
 
 domready(function(){
   var timer;
   var cy;
   var original_poster;
+  cycola( cytoscape, cola ); // register extension
+  cydagre( cytoscape, dagre ); // register extension
+  cyspringy( cytoscape, springy ); // register extension
+  cyarbor( cytoscape, arbor ); // register extension
+
 
   function submitForm() {
     // input nodes/edges for reblogs and OP

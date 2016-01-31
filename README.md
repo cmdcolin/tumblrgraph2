@@ -13,7 +13,16 @@ Or un-minified
 
     gulp devmode
 
-Requires browserify,uglifyjs
+
+Or in watch mode
+
+    gulp watch
+
+Or in dev watch mode
+
+    gulp watchdev
+
+Requires browserify, uglifyjs
 
 
 ## Demo
