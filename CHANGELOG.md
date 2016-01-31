@@ -1,3 +1,7 @@
+# Version 1.0.3
+
+- Update to version 2.6.0 of cytoscape.js
+
 # Version 1.0.2
 
 ## Features
