@@ -4,6 +4,7 @@ var cytoscape=require('cytoscape');
 var domready=require('domready');
 var _=require('underscore');
 var cycola = require('cytoscape-cola');
+//var cola = require('webcola');
 
 
 
@@ -14,8 +15,9 @@ domready(function(){
 
 
   cycola( cytoscape, cola ); // register extension
-  cycola( cytoscape, dagre ); // register extension
-  cycola( cytoscape, Springy ); // register extension
+  //cycola( cytoscape, dagre ); // register extension
+  //cycola( cytoscape, Springy ); // register extension
+  console.log("STARTUP");
   function submitForm() {
     // input nodes/edges for reblogs and OP
     var nodes={};
