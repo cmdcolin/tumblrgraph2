@@ -49,6 +49,15 @@ gulp.task('debug', function() {
 
 gulp.task('default', ['build']);
 gulp.task('devmode', ['debug']);
+gulp.task('watch', function() {
+  gulp.watch('js/*.js', ['default']);
+  gulp.watch('index.js', ['default']);
+});
+gulp.task('watchdev', function() {
+  gulp.watch('js/*.js', ['devmode']);
+  gulp.watch('index.js', ['devmode']);
+  gulp.watch('index.html', ['devmode']);
+});
 
 
 // Handle the error
