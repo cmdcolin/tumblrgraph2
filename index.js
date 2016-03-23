@@ -1,4 +1,5 @@
 var when = require('when');
+var $ = require('jquery');
 var cytoscape = require('cytoscape');
 var domready = require('domready');
 var _ = require('underscore');
