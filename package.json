@@ -1,6 +1,6 @@
 {
   "name": "tumblrgraph2",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Graph tumblr reblogs with cytoscape.js ",
   "main": "index.js",
   "scripts": {

@@ -1,3 +1,11 @@
+# Version 1.0.4
+
+## Features
+
+- Add spread layout
+- Add cose-bilkent layout
+- Update to cytoscape 2.6.6
+
 # Version 1.0.3
 
 ## Features
