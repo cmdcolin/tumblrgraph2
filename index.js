@@ -7,6 +7,9 @@ var cycola = require('cytoscape-cola');
 var cyarbor = require('cytoscape-arbor');
 var cydagre = require('cytoscape-dagre');
 var cyspringy = require('cytoscape-springy');
+var cyspread = require('cytoscape-spread');
+
+
 
 // layouts that have npm, others included via source
 var dagre = require('dagre');
@@ -20,6 +23,7 @@ domready(function(){
   cydagre( cytoscape, dagre ); // register extension
   cyspringy( cytoscape, springy ); // register extension
   cyarbor( cytoscape, arbor ); // register extension
+  cyspread( cytoscape ); // register extension
 
 
   function submitForm() {
