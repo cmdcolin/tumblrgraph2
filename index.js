@@ -4,6 +4,7 @@ var domready = require('domready');
 var _ = require('underscore');
 
 var cycola = require('cytoscape-cola');
+var cycose = require('cytoscape-cose-bilkent');
 var cyarbor = require('cytoscape-arbor');
 var cydagre = require('cytoscape-dagre');
 var cyspringy = require('cytoscape-springy');
@@ -24,6 +25,7 @@ domready(function(){
   cyspringy( cytoscape, springy ); // register extension
   cyarbor( cytoscape, arbor ); // register extension
   cyspread( cytoscape ); // register extension
+  cycose( cytoscape ); // register extension
 
 
   function submitForm() {
@@ -94,6 +96,7 @@ domready(function(){
       padding: 10,
       randomize: true,
       animate: true,
+      coolingFactor: 0.99, 
       infinite: true,
       repulsion: 1
     });
