@@ -4,7 +4,6 @@ var $ = require('jquery');
 var cytoscape = require('cytoscape');
 var domready = require('domready');
 var _ = require('underscore');
-
 var cycola = require('cytoscape-cola');
 var cycose = require('cytoscape-cose-bilkent');
 var cyarbor = require('cytoscape-arbor');
@@ -12,7 +11,8 @@ var cydagre = require('cytoscape-dagre');
 var cyspringy = require('cytoscape-springy');
 var cyspread = require('cytoscape-spread');
 
-
+window.$ = $;
+window.jQuery = $;
 
 // layouts that have npm, others included via source
 var dagre = require('dagre');
@@ -63,15 +63,15 @@ domready(function(){
       }
     });
 
-    var nodes_cy=_.map(nodes, function(node) { return {"data":node}; });
-    var edges_cy=_.map(edges,function(edge) { return {"data":edge}; });
+    var nodes_cy = _.map(nodes, function(node) { return {"data":node}; });
+    var edges_cy = _.map(edges,function(edge) { return {"data":edge}; });
 
 
     // set boring stylesheet
     var stylesheet_cy=cytoscape.stylesheet()
       .selector('node')
         .style({
-          'content': 'data(name)',
+          'content': '',
           'text-valign': 'center',
           'text-outline-width': 2,
           'text-outline-color': '#000',
@@ -79,7 +79,8 @@ domready(function(){
         })
       .selector('edge')
         .css({
-          'target-arrow-shape': 'triangle'
+          'target-arrow-shape': 'triangle',
+          'curve-style': 'haystack'
         });
    
     // create cytoscape instance
