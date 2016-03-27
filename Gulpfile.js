@@ -6,7 +6,8 @@ var gulp_browserify = require('gulp-browserify');
 
 gulp.task('build', function() {
   gulp.src([
-    'js/*.js'
+    'js/*.js',
+    'node_modules/cytoscape-arbor/arbor.js'
   ]).pipe(gulp.dest('dist/js'))
 
 
