@@ -71,7 +71,7 @@ domready(function(){
     var stylesheet_cy=cytoscape.stylesheet()
       .selector('node')
         .style({
-          'content': '',
+          'content': 'data(name)',
           'text-valign': 'center',
           'text-outline-width': 2,
           'text-outline-color': '#000',
@@ -79,8 +79,7 @@ domready(function(){
         })
       .selector('edge')
         .css({
-          'target-arrow-shape': 'triangle',
-          'curve-style': 'haystack'
+          'target-arrow-shape': 'triangle'
         });
    
     // create cytoscape instance
