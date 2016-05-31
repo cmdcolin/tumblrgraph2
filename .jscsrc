@@ -1,0 +1,7 @@
+{
+    "preset": "node-style-guide",
+    "disallowSpacesInsideParentheses": null,
+    "requireSpaceAfterKeywords": null,
+    "maximumLineLength": null,
+    "requireCamelCaseOrUpperCaseIdentifiers": null
+}
