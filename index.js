@@ -1,7 +1,6 @@
 var when = require('when');
 var $ = require('jquery');
 var cytoscape = require('cytoscape');
-var domready = require('domready');
 var _ = require('underscore');
 var cycola = require('cytoscape-cola');
 var cycose = require('cytoscape-cose-bilkent');
@@ -17,7 +16,7 @@ window.jQuery = $;
 var dagre = require('dagre');
 var springy = require('springy');
 
-domready(function() {
+$(function() {
   var timer;
   var cy;
   var original_poster;

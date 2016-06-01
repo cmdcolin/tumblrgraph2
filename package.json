@@ -23,7 +23,6 @@
     "cytoscape-spread": "^1.2.0",
     "cytoscape-springy": "^1.2.1",
     "dagre": "^0.7.4",
-    "domready": "^1.0.8",
     "jquery": "^2.2.4",
     "springy": "^2.7.1",
     "underscore": "^1.8.3",
