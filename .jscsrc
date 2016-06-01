@@ -3,5 +3,6 @@
     "disallowSpacesInsideParentheses": null,
     "requireSpaceAfterKeywords": null,
     "maximumLineLength": null,
-    "requireCamelCaseOrUpperCaseIdentifiers": null
+    "requireCamelCaseOrUpperCaseIdentifiers": null,
+    "validateIndentation": 4
 }
