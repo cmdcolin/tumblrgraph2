@@ -2,7 +2,6 @@
 var when = require('when');
 var $ = require('jquery');
 var cytoscape = require('cytoscape');
-var domready = require('domready');
 var _ = require('underscore');
 var cycola = require('cytoscape-cola');
 var cycose = require('cytoscape-cose-bilkent');
@@ -18,7 +17,7 @@ window.jQuery = $;
 var dagre = require('dagre');
 var springy = require('springy');
 
-domready(function() {
+$(function() {
   var timer;
   var cy;
   var original_poster;
@@ -173,7 +172,7 @@ domready(function() {
 
 
 
-},{"cytoscape":90,"cytoscape-arbor":3,"cytoscape-cola":4,"cytoscape-cose-bilkent":5,"cytoscape-dagre":6,"cytoscape-spread":7,"cytoscape-springy":8,"dagre":116,"domready":146,"jquery":167,"springy":172,"underscore":173,"when":191}],2:[function(require,module,exports){
+},{"cytoscape":90,"cytoscape-arbor":3,"cytoscape-cola":4,"cytoscape-cose-bilkent":5,"cytoscape-dagre":6,"cytoscape-spread":7,"cytoscape-springy":8,"dagre":116,"jquery":166,"springy":171,"underscore":172,"when":190}],2:[function(require,module,exports){
 
 },{}],3:[function(require,module,exports){
 /*!
@@ -30543,7 +30542,7 @@ define.eventAliasesOn( fabfn );
 
 module.exports = Fabric;
 
-},{"./define":52,"./is":91,"./promise":94,"./thread":106,"./util":108,"os":169}],89:[function(require,module,exports){
+},{"./define":52,"./is":91,"./promise":94,"./thread":106,"./util":108,"os":168}],89:[function(require,module,exports){
 /*!
 Ported by Xueqiao Xu <xueqiaoxu@gmail.com>;
 
@@ -36150,7 +36149,7 @@ define.eventAliasesOn( thdfn );
 module.exports = Thread;
 
 }).call(this,"/node_modules/cytoscape/src")
-},{"./define":52,"./event":53,"./is":91,"./promise":94,"./util":108,"./window":115,"child_process":2,"path":170}],107:[function(require,module,exports){
+},{"./define":52,"./event":53,"./is":91,"./promise":94,"./util":108,"./window":115,"child_process":2,"path":169}],107:[function(require,module,exports){
 'use strict';
 
 var is = require( '../is' );
@@ -37297,7 +37296,7 @@ if (!graphlib) {
 
 module.exports = graphlib;
 
-},{"graphlib":147}],123:[function(require,module,exports){
+},{"graphlib":146}],123:[function(require,module,exports){
 var _ = require("./lodash"),
     Graph = require("./graphlib").Graph,
     List = require("./data/list");
@@ -37828,7 +37827,7 @@ if (!lodash) {
 
 module.exports = lodash;
 
-},{"lodash":168}],126:[function(require,module,exports){
+},{"lodash":167}],126:[function(require,module,exports){
 var _ = require("./lodash"),
     util = require("./util");
 
@@ -39871,38 +39870,6 @@ function notime(name, fn) {
 module.exports = "0.7.4";
 
 },{}],146:[function(require,module,exports){
-/*!
-  * domready (c) Dustin Diaz 2014 - License MIT
-  */
-!function (name, definition) {
-
-  if (typeof module != 'undefined') module.exports = definition()
-  else if (typeof define == 'function' && typeof define.amd == 'object') define(definition)
-  else this[name] = definition()
-
-}('domready', function () {
-
-  var fns = [], listener
-    , doc = document
-    , hack = doc.documentElement.doScroll
-    , domContentLoaded = 'DOMContentLoaded'
-    , loaded = (hack ? /^loaded|^c/ : /^loaded|^i|^c/).test(doc.readyState)
-
-
-  if (!loaded)
-  doc.addEventListener(domContentLoaded, listener = function () {
-    doc.removeEventListener(domContentLoaded, listener)
-    loaded = 1
-    while (listener = fns.shift()) listener()
-  })
-
-  return function (fn) {
-    loaded ? setTimeout(fn, 0) : fns.push(fn)
-  }
-
-});
-
-},{}],147:[function(require,module,exports){
 /**
  * Copyright (c) 2014, Chris Pettitt
  * All rights reserved.
@@ -39942,7 +39909,7 @@ module.exports = {
   version: lib.version
 };
 
-},{"./lib":163,"./lib/alg":154,"./lib/json":164}],148:[function(require,module,exports){
+},{"./lib":162,"./lib/alg":153,"./lib/json":163}],147:[function(require,module,exports){
 var _ = require("../lodash");
 
 module.exports = components;
@@ -39971,7 +39938,7 @@ function components(g) {
   return cmpts;
 }
 
-},{"../lodash":165}],149:[function(require,module,exports){
+},{"../lodash":164}],148:[function(require,module,exports){
 var _ = require("../lodash");
 
 module.exports = dfs;
@@ -40012,7 +39979,7 @@ function doDfs(g, v, postorder, visited, acc) {
   }
 }
 
-},{"../lodash":165}],150:[function(require,module,exports){
+},{"../lodash":164}],149:[function(require,module,exports){
 var dijkstra = require("./dijkstra"),
     _ = require("../lodash");
 
@@ -40024,7 +39991,7 @@ function dijkstraAll(g, weightFunc, edgeFunc) {
   }, {});
 }
 
-},{"../lodash":165,"./dijkstra":151}],151:[function(require,module,exports){
+},{"../lodash":164,"./dijkstra":150}],150:[function(require,module,exports){
 var _ = require("../lodash"),
     PriorityQueue = require("../data/priority-queue");
 
@@ -40080,7 +40047,7 @@ function runDijkstra(g, source, weightFn, edgeFn) {
   return results;
 }
 
-},{"../data/priority-queue":161,"../lodash":165}],152:[function(require,module,exports){
+},{"../data/priority-queue":160,"../lodash":164}],151:[function(require,module,exports){
 var _ = require("../lodash"),
     tarjan = require("./tarjan");
 
@@ -40092,7 +40059,7 @@ function findCycles(g) {
   });
 }
 
-},{"../lodash":165,"./tarjan":159}],153:[function(require,module,exports){
+},{"../lodash":164,"./tarjan":158}],152:[function(require,module,exports){
 var _ = require("../lodash");
 
 module.exports = floydWarshall;
@@ -40144,7 +40111,7 @@ function runFloydWarshall(g, weightFn, edgeFn) {
   return results;
 }
 
-},{"../lodash":165}],154:[function(require,module,exports){
+},{"../lodash":164}],153:[function(require,module,exports){
 module.exports = {
   components: require("./components"),
   dijkstra: require("./dijkstra"),
@@ -40159,7 +40126,7 @@ module.exports = {
   topsort: require("./topsort")
 };
 
-},{"./components":148,"./dijkstra":151,"./dijkstra-all":150,"./find-cycles":152,"./floyd-warshall":153,"./is-acyclic":155,"./postorder":156,"./preorder":157,"./prim":158,"./tarjan":159,"./topsort":160}],155:[function(require,module,exports){
+},{"./components":147,"./dijkstra":150,"./dijkstra-all":149,"./find-cycles":151,"./floyd-warshall":152,"./is-acyclic":154,"./postorder":155,"./preorder":156,"./prim":157,"./tarjan":158,"./topsort":159}],154:[function(require,module,exports){
 var topsort = require("./topsort");
 
 module.exports = isAcyclic;
@@ -40176,7 +40143,7 @@ function isAcyclic(g) {
   return true;
 }
 
-},{"./topsort":160}],156:[function(require,module,exports){
+},{"./topsort":159}],155:[function(require,module,exports){
 var dfs = require("./dfs");
 
 module.exports = postorder;
@@ -40185,7 +40152,7 @@ function postorder(g, vs) {
   return dfs(g, vs, "post");
 }
 
-},{"./dfs":149}],157:[function(require,module,exports){
+},{"./dfs":148}],156:[function(require,module,exports){
 var dfs = require("./dfs");
 
 module.exports = preorder;
@@ -40194,7 +40161,7 @@ function preorder(g, vs) {
   return dfs(g, vs, "pre");
 }
 
-},{"./dfs":149}],158:[function(require,module,exports){
+},{"./dfs":148}],157:[function(require,module,exports){
 var _ = require("../lodash"),
     Graph = require("../graph"),
     PriorityQueue = require("../data/priority-queue");
@@ -40248,7 +40215,7 @@ function prim(g, weightFunc) {
   return result;
 }
 
-},{"../data/priority-queue":161,"../graph":162,"../lodash":165}],159:[function(require,module,exports){
+},{"../data/priority-queue":160,"../graph":161,"../lodash":164}],158:[function(require,module,exports){
 var _ = require("../lodash");
 
 module.exports = tarjan;
@@ -40297,7 +40264,7 @@ function tarjan(g) {
   return results;
 }
 
-},{"../lodash":165}],160:[function(require,module,exports){
+},{"../lodash":164}],159:[function(require,module,exports){
 var _ = require("../lodash");
 
 module.exports = topsort;
@@ -40333,7 +40300,7 @@ function topsort(g) {
 
 function CycleException() {}
 
-},{"../lodash":165}],161:[function(require,module,exports){
+},{"../lodash":164}],160:[function(require,module,exports){
 var _ = require("../lodash");
 
 module.exports = PriorityQueue;
@@ -40487,7 +40454,7 @@ PriorityQueue.prototype._swap = function(i, j) {
   keyIndices[origArrI.key] = j;
 };
 
-},{"../lodash":165}],162:[function(require,module,exports){
+},{"../lodash":164}],161:[function(require,module,exports){
 "use strict";
 
 var _ = require("./lodash");
@@ -41008,14 +40975,14 @@ function edgeObjToId(isDirected, edgeObj) {
   return edgeArgsToId(isDirected, edgeObj.v, edgeObj.w, edgeObj.name);
 }
 
-},{"./lodash":165}],163:[function(require,module,exports){
+},{"./lodash":164}],162:[function(require,module,exports){
 // Includes only the "core" of graphlib
 module.exports = {
   Graph: require("./graph"),
   version: require("./version")
 };
 
-},{"./graph":162,"./version":166}],164:[function(require,module,exports){
+},{"./graph":161,"./version":165}],163:[function(require,module,exports){
 var _ = require("./lodash"),
     Graph = require("./graph");
 
@@ -41083,12 +41050,12 @@ function read(json) {
   return g;
 }
 
-},{"./graph":162,"./lodash":165}],165:[function(require,module,exports){
+},{"./graph":161,"./lodash":164}],164:[function(require,module,exports){
 module.exports=require(125)
-},{"lodash":168}],166:[function(require,module,exports){
+},{"lodash":167}],165:[function(require,module,exports){
 module.exports = '1.0.7';
 
-},{}],167:[function(require,module,exports){
+},{}],166:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.4
  * http://jquery.com/
@@ -50904,7 +50871,7 @@ if ( !noGlobal ) {
 return jQuery;
 }));
 
-},{}],168:[function(require,module,exports){
+},{}],167:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -63259,7 +63226,7 @@ return jQuery;
 }.call(this));
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],169:[function(require,module,exports){
+},{}],168:[function(require,module,exports){
 exports.endianness = function () { return 'LE' };
 
 exports.hostname = function () {
@@ -63306,7 +63273,7 @@ exports.tmpdir = exports.tmpDir = function () {
 
 exports.EOL = '\n';
 
-},{}],170:[function(require,module,exports){
+},{}],169:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -63534,7 +63501,7 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require("g5I+bs"))
-},{"g5I+bs":171}],171:[function(require,module,exports){
+},{"g5I+bs":170}],170:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -63599,7 +63566,7 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],172:[function(require,module,exports){
+},{}],171:[function(require,module,exports){
 /**
  * Springy v2.7.1
  *
@@ -64328,7 +64295,7 @@ process.chdir = function (dir) {
   return Springy;
 }));
 
-},{}],173:[function(require,module,exports){
+},{}],172:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -65878,7 +65845,7 @@ process.chdir = function (dir) {
   }
 }.call(this));
 
-},{}],174:[function(require,module,exports){
+},{}],173:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -65897,7 +65864,7 @@ define(function (require) {
 });
 })(typeof define === 'function' && define.amd ? define : function (factory) { module.exports = factory(require); });
 
-},{"./Scheduler":175,"./env":187,"./makePromise":189}],175:[function(require,module,exports){
+},{"./Scheduler":174,"./env":186,"./makePromise":188}],174:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -65979,7 +65946,7 @@ define(function() {
 });
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
 
-},{}],176:[function(require,module,exports){
+},{}],175:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -66007,7 +65974,7 @@ define(function() {
 	return TimeoutError;
 });
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
-},{}],177:[function(require,module,exports){
+},{}],176:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -66064,7 +66031,7 @@ define(function() {
 
 
 
-},{}],178:[function(require,module,exports){
+},{}],177:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -66355,7 +66322,7 @@ define(function(require) {
 });
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(require); }));
 
-},{"../apply":177,"../state":190}],179:[function(require,module,exports){
+},{"../apply":176,"../state":189}],178:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -66517,7 +66484,7 @@ define(function() {
 });
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
 
-},{}],180:[function(require,module,exports){
+},{}],179:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -66546,7 +66513,7 @@ define(function() {
 });
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
 
-},{}],181:[function(require,module,exports){
+},{}],180:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -66568,7 +66535,7 @@ define(function(require) {
 });
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(require); }));
 
-},{"../state":190}],182:[function(require,module,exports){
+},{"../state":189}],181:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -66635,7 +66602,7 @@ define(function() {
 });
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
 
-},{}],183:[function(require,module,exports){
+},{}],182:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -66661,7 +66628,7 @@ define(function() {
 });
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
 
-},{}],184:[function(require,module,exports){
+},{}],183:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -66741,7 +66708,7 @@ define(function(require) {
 });
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(require); }));
 
-},{"../TimeoutError":176,"../env":187}],185:[function(require,module,exports){
+},{"../TimeoutError":175,"../env":186}],184:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -66829,7 +66796,7 @@ define(function(require) {
 });
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(require); }));
 
-},{"../env":187,"../format":188}],186:[function(require,module,exports){
+},{"../env":186,"../format":187}],185:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -66869,7 +66836,7 @@ define(function() {
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
 
 
-},{}],187:[function(require,module,exports){
+},{}],186:[function(require,module,exports){
 (function (process){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
@@ -66946,7 +66913,7 @@ define(function(require) {
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(require); }));
 
 }).call(this,require("g5I+bs"))
-},{"g5I+bs":171}],188:[function(require,module,exports){
+},{"g5I+bs":170}],187:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -67004,7 +66971,7 @@ define(function() {
 });
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
 
-},{}],189:[function(require,module,exports){
+},{}],188:[function(require,module,exports){
 (function (process){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
@@ -67935,7 +67902,7 @@ define(function() {
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
 
 }).call(this,require("g5I+bs"))
-},{"g5I+bs":171}],190:[function(require,module,exports){
+},{"g5I+bs":170}],189:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 /** @author Brian Cavalier */
 /** @author John Hann */
@@ -67972,7 +67939,7 @@ define(function() {
 });
 }(typeof define === 'function' && define.amd ? define : function(factory) { module.exports = factory(); }));
 
-},{}],191:[function(require,module,exports){
+},{}],190:[function(require,module,exports){
 /** @license MIT License (c) copyright 2010-2014 original author or authors */
 
 /**
@@ -68202,4 +68169,4 @@ define(function (require) {
 });
 })(typeof define === 'function' && define.amd ? define : function (factory) { module.exports = factory(require); });
 
-},{"./lib/Promise":174,"./lib/TimeoutError":176,"./lib/apply":177,"./lib/decorators/array":178,"./lib/decorators/flow":179,"./lib/decorators/fold":180,"./lib/decorators/inspect":181,"./lib/decorators/iterate":182,"./lib/decorators/progress":183,"./lib/decorators/timed":184,"./lib/decorators/unhandledRejection":185,"./lib/decorators/with":186}]},{},[1])
+},{"./lib/Promise":173,"./lib/TimeoutError":175,"./lib/apply":176,"./lib/decorators/array":177,"./lib/decorators/flow":178,"./lib/decorators/fold":179,"./lib/decorators/inspect":180,"./lib/decorators/iterate":181,"./lib/decorators/progress":182,"./lib/decorators/timed":183,"./lib/decorators/unhandledRejection":184,"./lib/decorators/with":185}]},{},[1])
