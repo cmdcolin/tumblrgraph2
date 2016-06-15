@@ -1,0 +1,9 @@
+addons:
+  apt:
+    packages:
+    - tidy
+install:
+    - npm install eslint
+script:
+    - tidy index.html
+    - eslint index.js

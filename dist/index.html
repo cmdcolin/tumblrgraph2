@@ -1,40 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>TumblrGraph</title>
-<script src="index.js"></script>
-<script src="js/cola.v3.min.js"></script>
-<script src="js/whammy.js"></script>
-<script src="js/arbor.js"></script>
+  <meta name="generator" content="HTML Tidy for HTML5 for Mac OS X version 5.2.0">
+  <title>TumblrGraph</title>
+  <script src="index.js">
+  </script>
+  <script src="js/cola.v3.min.js">
+  </script>
+  <script src="js/whammy.js">
+  </script>
+  <script src="js/arbor.js">
+  </script>
 </head>
 <body style="font: 14px helvetica neue, helvetica, arial, sans-serif;">
-<h1>TumblrGraph</h1>
-
-
-<div style="float:left;">
-<form id="myform">
-<label>Color by distance from root?</label>
-<input type="checkbox" id="color_by_bfs" checked="checked"></input>
-<label>Animate speed (ms)</label>
-<input type="text" id="animate_speed" value="30"></input>
-<label>Select layout</label>
-<select id="layout">
-<option value="cola">cola</option>
-<option value="cose">cose</option>
-<option value="cose-bilkent">cose-bilkent</option>
-<option value="cytoscape-ngraph.forcelayout">cytoscape-ngraph.forcelayout</option>
-<option value="dagre">dagre</option>
-<option value="arbor">arbor</option>
-<option value="arbor">spread</option>
-<option value="grid">grid</option>
-<option value="springy">springy</option>
-<option value="random">random</option>
-<option value="breadthfirst">breadthfirst</option>
-</select>
-<br />
-<label>Enter reblogs (can contain notes or other things too, these are filtered out)</label>
-<br />
-<textarea rows=10 cols=80 id="notes">userE1 reblogged this from userC3
+  <h1>TumblrGraph</h1>
+  <div style="float:left;">
+    <form id="myform" name="myform">
+      <label>Color by distance from root?</label> <input type="checkbox" id="color_by_bfs" checked="checked">
+      <label>Animate speed (ms)</label> <input type="text" id="animate_speed" value="30"> <label>Select layout</label>
+      <select id="layout">
+        <option value="cola">
+          cola
+        </option>
+        <option value="cose">
+          cose
+        </option>
+        <option value="cose-bilkent">
+          cose-bilkent
+        </option>
+        <option value="cytoscape-ngraph.forcelayout">
+          cytoscape-ngraph.forcelayout
+        </option>
+        <option value="dagre">
+          dagre
+        </option>
+        <option value="arbor">
+          arbor
+        </option>
+        <option value="arbor">
+          spread
+        </option>
+        <option value="grid">
+          grid
+        </option>
+        <option value="springy">
+          springy
+        </option>
+        <option value="random">
+          random
+        </option>
+        <option value="breadthfirst">
+          breadthfirst
+        </option>
+      </select><br>
+      <label>Enter reblogs (can contain notes or other things too, these are filtered out)</label><br>
+      <textarea rows="10" cols="80" id="notes">userE1 reblogged this from userC3
 userE2 reblogged this from userC3
 userE3 reblogged this from userC3
 userE4 reblogged this from userC3
@@ -67,30 +87,29 @@ userA4 reblogged this from originalposter
 userA3 reblogged this from originalposter
 userA2 reblogged this from originalposter
 userA1 reblogged this from originalposter
-originalposter posted this</textarea>
+originalposter posted this</textarea> <input type="submit" name="Submit"> <input type="button" value="Save as PNG"
+      id="save_button"> <input type="button" value="Save as HTML5 animation" id="animate_graph">
+      <div id="output"></div>
+    </form>
+  </div>
+  <div style="float:left">
+    <div id="cy" style="position: relative;border: 1px solid black; width: 1200px; height: 800px;"></div><a href=
+    "https://github.com/cmdcolin/tumblrgraph2">View on GitHub</a>
+    <p>Instructions: copy and paste the notes from a given post on tumblr (basically, go the the actual URL for the
+    post and copy them) and then use the custom settings here to customize the layout. Some graph layouts require a
+    "simulation" phase so the layout time parameter is configurable, during which time the text will say "Optimizing
+    layout". You can interact with the nodes before and after this phase to affect the overall layout.</p>
+    <p>Version 1.0.5</p>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-<input type="submit" name="Submit"></input>
-<input type="button" value="Save as PNG" id="save_button"></input>
-<input type="button" value="Save as HTML5 animation" id="animate_graph"></input>
-<div id="output"></div>
-</form>
-</div>
-<div style="float:left">
-<div id="cy" style="position: relative;border: 1px solid black; width: 1200px; height: 800px;"></div>
-</span>
+    ga('create', 'UA-59273647-1', 'auto');
+    ga('send', 'pageview');
 
-<a href="https://github.com/cmdcolin/tumblrgraph2">View on GitHub</a>
-<p>Instructions: copy and paste the notes from a given post on tumblr (basically, go the the actual URL for the post and copy them) and then use the custom settings here to customize the layout. Some graph layouts require a "simulation" phase so the layout time parameter is configurable, during which time the text will say "Optimizing layout". You can interact with the nodes before and after this phase to affect the overall layout.</p>
-<p>Version 1.0.5</p>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-59273647-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
+    </script>
+  </div>
 </body>
 </html>
