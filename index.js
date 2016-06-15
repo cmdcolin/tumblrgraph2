@@ -130,7 +130,7 @@ $(() => {
     });
 
     $('#animate_graph').on('click', () => {
-        var animateSpeed = $('#animateSpeed').val();
+        var animateSpeed = $('#animate_speed').val();
         var encoder = new Whammy.Video(1000 / animateSpeed);
         var collection = cy.elements('node');
         collection.forEach((elt) => {
@@ -138,7 +138,7 @@ $(() => {
         });
 
         var arr = [];
-        cy.elements().bfs(`#${originalPoster}`, () => {
+        cy.elements().bfs(`#${originalPoster}`, function () {
             arr.push(this);
         }, false);
 

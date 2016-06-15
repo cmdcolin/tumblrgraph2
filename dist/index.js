@@ -135,7 +135,7 @@ $(function () {
     });
 
     $('#animate_graph').on('click', function () {
-        var animateSpeed = $('#animateSpeed').val();
+        var animateSpeed = $('#animate_speed').val();
         var encoder = new Whammy.Video(1000 / animateSpeed);
         var collection = cy.elements('node');
         collection.forEach(function (elt) {
@@ -144,7 +144,7 @@ $(function () {
 
         var arr = [];
         cy.elements().bfs('#' + originalPoster, function () {
-            arr.push(undefined);
+            arr.push(this);
         }, false);
 
         function addNode(g, i) {
