@@ -26,12 +26,13 @@
     "dagre": "^0.7.4",
     "jquery": "^3.0.0",
     "springy": "^2.7.1",
-    "underscore": "^1.8.3",
-    "when": "^3.7.7"
+    "underscore": "^1.8.3"
   },
   "repository": "https://github.com/cmdcolin/tumblrgraph2.git",
   "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
     "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.6.0",
     "gulp-rename": "^1.2.2",

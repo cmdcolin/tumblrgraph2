@@ -3,13 +3,17 @@
   "rules": {
     "no-var": 0,
     "object-shorthand": 0,
-    "indent": ["error", 4]
+    "indent": ["error", 4],
+    "max-len": ["error", 200, 4],
+    "vars-on-top": 0
   },
   "globals": {
     "$": true,
     "require": true,
     "window": true,
     "console": true,
-    "Whammy": true
+    "Whammy": true,
+    "cola": true,
+    "arbor": true
   }
 }
