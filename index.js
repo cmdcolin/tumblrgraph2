@@ -8,6 +8,8 @@ var cyarbor = require('cytoscape-arbor');
 var cydagre = require('cytoscape-dagre');
 var cyspringy = require('cytoscape-springy');
 var cyspread = require('cytoscape-spread');
+var cyngraph = require('cytoscape-ngraph.forcelayout');
+console.log(cyngraph);
 
 window.$ = $;
 window.jQuery = $;
@@ -15,6 +17,8 @@ window.jQuery = $;
 // Layouts that have npm, others included via source
 var dagre = require('dagre');
 var springy = require('springy');
+
+
 
 $(function() {
     var timer;
@@ -26,7 +30,7 @@ $(function() {
     cyarbor( cytoscape, arbor ); // Register extension
     cyspread( cytoscape ); // Register extension
     cycose( cytoscape ); // Register extension
-
+    cyngraph( cytoscape );
 
     function submitForm() {
         // Input nodes/edges for reblogs and OP

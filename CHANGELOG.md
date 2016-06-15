@@ -1,10 +1,15 @@
+# Version 1.0.5
+
+- Add "viva" ngraph forcelayout
+- Update to version 2.7.2 of cytoscape.js
+
 # Version 1.0.4
 
 ## Features
 
 - Add spread layout
 - Add cose-bilkent layout
-- Update to cytoscape 2.6.6
+- Update to version 2.6.6 of cytoscape.js
 
 # Version 1.0.3
 
