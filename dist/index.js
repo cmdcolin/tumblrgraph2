@@ -22,17 +22,15 @@ var springy = require('springy');
 $(function () {
     var cy;
     var originalPoster;
-    cycola(cytoscape, cola); // Register extension
-    cydagre(cytoscape, dagre); // Register extension
-    cyspringy(cytoscape, springy); // Register extension
-    cyarbor(cytoscape, arbor); // Register extension
-    cyspread(cytoscape); // Register extension
-    cycose(cytoscape); // Register extension
+    cycola(cytoscape, cola);
+    cydagre(cytoscape, dagre);
+    cyspringy(cytoscape, springy);
+    cyarbor(cytoscape, arbor);
+    cyspread(cytoscape);
+    cycose(cytoscape);
     cyngraph(cytoscape);
 
     function submitForm() {
-        var _this = this;
-
         // Input nodes/edges for reblogs and OP
         var nodes = {};
         var edges = {};
@@ -121,7 +119,7 @@ $(function () {
 
             // Use breadth first search to color nodes
             cy.elements().bfs('#' + originalPoster, function (i, depth) {
-                _this.style('background-color', 'hsl(' + depth * 150 / maxDepth + ',80%,55%)');
+                this.style('background-color', 'hsl(' + depth * 150 / maxDepth + ',80%,55%)');
             }, false);
         }
     }

@@ -19,12 +19,12 @@ var springy = require('springy');
 $(() => {
     var cy;
     var originalPoster;
-    cycola(cytoscape, cola); // Register extension
-    cydagre(cytoscape, dagre); // Register extension
-    cyspringy(cytoscape, springy); // Register extension
-    cyarbor(cytoscape, arbor); // Register extension
-    cyspread(cytoscape); // Register extension
-    cycose(cytoscape); // Register extension
+    cycola(cytoscape, cola);
+    cydagre(cytoscape, dagre);
+    cyspringy(cytoscape, springy);
+    cyarbor(cytoscape, arbor);
+    cyspread(cytoscape);
+    cycose(cytoscape);
     cyngraph(cytoscape);
 
     function submitForm() {
@@ -108,14 +108,14 @@ $(() => {
         // Color by distance from original poster using BFS
         if ($('#color_by_bfs').prop('checked')) {
             var maxDepth = 1;
-            cy.elements().bfs(`#${originalPoster}`, (i, depth) => {
+            cy.elements().bfs(`#${originalPoster}`, (function (i, depth) {
                 if (depth > maxDepth) { maxDepth = depth; }
-            }, false);
+            }), false);
 
             // Use breadth first search to color nodes
-            cy.elements().bfs(`#${originalPoster}`, (i, depth) => {
+            cy.elements().bfs(`#${originalPoster}`, (function (i, depth) {
                 this.style('background-color', `hsl(${depth * 150 / maxDepth},80%,55%)`);
-            }, false);
+            }), false);
         }
     }
 
