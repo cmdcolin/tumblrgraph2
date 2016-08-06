@@ -1,4 +1,3 @@
-var $ = require('jquery');
 var cytoscape = require('cytoscape');
 var _ = require('underscore');
 var cycola = require('cytoscape-cola');
@@ -8,10 +7,7 @@ var cydagre = require('cytoscape-dagre');
 var cyspringy = require('cytoscape-springy');
 var cyspread = require('cytoscape-spread');
 var cyngraph = require('cytoscape-ngraph.forcelayout');
-var cypanzoom = require('cytoscape-panzoom');
-
-window.$ = $;
-window.jQuery = $;
+var panzoom = require('cytoscape-panzoom');
 
 // Layouts that have npm, others included via source
 var dagre = require('dagre');
@@ -27,7 +23,7 @@ $(() => {
     cyspread(cytoscape);
     cycose(cytoscape);
     cyngraph(cytoscape);
-    cypanzoom(cytoscape, $);
+    panzoom(cytoscape, $);
 
     function submitForm() {
         // Input nodes/edges for reblogs and OP

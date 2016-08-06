@@ -26,7 +26,6 @@
     "cytoscape-springy": "^1.2.1",
     "dagre": "^0.7.4",
     "gulp-smoosher": "0.0.9",
-    "jquery": "^3.0.0",
     "springy": "^2.7.1",
     "underscore": "^1.8.3"
   },
