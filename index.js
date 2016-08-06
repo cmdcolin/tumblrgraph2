@@ -8,6 +8,7 @@ var cydagre = require('cytoscape-dagre');
 var cyspringy = require('cytoscape-springy');
 var cyspread = require('cytoscape-spread');
 var cyngraph = require('cytoscape-ngraph.forcelayout');
+var cypanzoom = require('cytoscape-panzoom');
 
 window.$ = $;
 window.jQuery = $;
@@ -104,6 +105,29 @@ $(() => {
                 repulsion: 1,
             },
         });
+        var defaults = {
+            zoomFactor: 0.05,
+            zoomDelay: 45,
+            minZoom: 0.1,
+            maxZoom: 10,
+            fitPadding: 50,
+            panSpeed: 10,
+            panDistance: 10,
+            panDragAreaSize: 75,
+            panMinPercentSpeed: 0.25,
+            panInactiveArea: 8,
+            panIndicatorMinOpacity: 0.5,
+            zoomOnly: false,
+            fitSelector: undefined,
+            animateOnFit: () => false,
+            fitAnimationDuration: 1000,
+            sliderHandleIcon: 'fa fa-minus',
+            zoomInIcon: 'fa fa-plus',
+            zoomOutIcon: 'fa fa-minus',
+            resetIcon: 'fa fa-expand',
+        };
+
+        cy.panzoom(defaults);
 
         // Color by distance from original poster using BFS
         if ($('#color_by_bfs').prop('checked')) {
