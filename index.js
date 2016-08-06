@@ -27,6 +27,7 @@ $(() => {
     cyspread(cytoscape);
     cycose(cytoscape);
     cyngraph(cytoscape);
+    cypanzoom(cytoscape, $);
 
     function submitForm() {
         // Input nodes/edges for reblogs and OP
