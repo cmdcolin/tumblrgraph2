@@ -67,7 +67,7 @@ $(() => {
 
         // Create cytoscape instance
         cy = cytoscape({
-            container: document.getElementById('cy'),
+            container: $('#cy'),
             style: cytoscape.stylesheet()
             .selector('node')
               .style({

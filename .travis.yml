@@ -1,10 +1,4 @@
-addons:
-  apt:
-    packages:
-    - tidy
-install:
-    - npm install eslint eslint-config-airbnb
-before_script:
-    - npm install
-script:
-    - eslint index.js
+language: node_js
+node_js:
+  - "stable"
+sudo: false
