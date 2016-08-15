@@ -2,7 +2,6 @@ var cytoscape = require('cytoscape');
 var _ = require('underscore');
 var cycola = require('cytoscape-cola');
 var cycose = require('cytoscape-cose-bilkent');
-var cyarbor = require('cytoscape-arbor');
 var cydagre = require('cytoscape-dagre');
 var cyspringy = require('cytoscape-springy');
 var cyspread = require('cytoscape-spread');
@@ -19,7 +18,6 @@ $(() => {
     cycola(cytoscape, cola);
     cydagre(cytoscape, dagre);
     cyspringy(cytoscape, springy);
-    cyarbor(cytoscape, arbor);
     cyspread(cytoscape);
     cycose(cytoscape);
     cyngraph(cytoscape);
