@@ -2,28 +2,23 @@
 
 Graph tumblr reblogs with cytoscape.js
 
+## Install
+
+    npm install
 
 ## Build
 
 To deploy to the dist folder
 
-    gulp
+    npm build
 
 Or un-minified
 
-    gulp devmode
-
+    npm debug
 
 Or in watch mode
 
-    gulp watch
-
-Or in dev watch mode
-
-    gulp watchdev
-
-Requires browserify, uglifyjs
-
+    npm watch
 
 ## Demo
 
