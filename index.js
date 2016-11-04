@@ -60,8 +60,8 @@ $(() => {
             }
         });
 
-        var nodesCy = _.map(nodes, (node) => ({ data: node }));
-        var edgesCy = _.map(edges, (edge) => ({ data: edge }));
+        var nodesCy = _.map(nodes, node => ({ data: node }));
+        var edgesCy = _.map(edges, edge => ({ data: edge }));
 
         // Create cytoscape instance
         cy = cytoscape({
