@@ -11,6 +11,7 @@ var panzoom = require('cytoscape-panzoom');
 // Layouts that have npm, others included via source
 var dagre = require('dagre');
 var springy = require('springy');
+var cola = require('cytoscape-cola/cola');
 
 $(() => {
     var cy;
