@@ -161,6 +161,10 @@ $(() => {
     $('#save_button').on('click', function() {
         downloadURI(cy.png({scale: 3}), 'screenshot');
     });
+    $('#layout').on('change', function() {
+        submitForm();
+        return false;
+    });
 
     submitForm();
 });
