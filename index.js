@@ -1,28 +1,37 @@
 var cytoscape = require('cytoscape');
 var _ = require('underscore');
-var cycola = require('cytoscape-cola');
-var cycose = require('cytoscape-cose-bilkent');
-var cydagre = require('cytoscape-dagre');
-var cyspringy = require('cytoscape-springy');
-var cyspread = require('cytoscape-spread');
-var cyngraph = require('cytoscape-ngraph.forcelayout');
+var cyqtip = require('cytoscape-qtip');
+var weaver = require('weaverjs');
+var cose_bilkent = require('cytoscape-cose-bilkent');
+var dagre = require('cytoscape-dagre');
+var spread = require('cytoscape-spread');
 var panzoom = require('cytoscape-panzoom');
+var euler = require('cytoscape-euler');
+var klay = require('cytoscape-klay');
+var cyforcelayout = require('cytoscape-ngraph.forcelayout');
+var cola = require('cytoscape-cola')
 
-// Layouts that have npm, others included via source
-var dagre = require('dagre');
-var springy = require('springy');
-var cola = require('cytoscape-cola/cola');
-
+function downloadURI(uri, name) {
+  var link = document.createElement("a");
+  link.download = name;
+  link.href = uri;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
 $(() => {
     var cy;
     var originalPoster;
-    cycola(cytoscape, cola);
-    cydagre(cytoscape, dagre);
-    cyspringy(cytoscape, springy);
-    cyspread(cytoscape);
-    cycose(cytoscape);
-    cyngraph(cytoscape);
-    panzoom(cytoscape, $);
+    cytoscape.use(cola);
+    cytoscape.use(cose_bilkent)
+    cytoscape.use(dagre);
+    cytoscape.use(klay);
+    cytoscape.use(euler);
+
+    spread(cytoscape, weaver);
+    cyforcelayout(cytoscape);
+    cyqtip(cytoscape);
+    panzoom(cytoscape);
 
     function submitForm() {
         // Input nodes/edges for reblogs and OP
@@ -133,9 +142,13 @@ $(() => {
             }), false);
 
             // Use breadth first search to color nodes
-            cy.elements().bfs(`#${originalPoster}`, (function (i, depth) {
-                this.style('background-color', `hsl(${depth * 150 / maxDepth},80%,55%)`);
-            }), false);
+            cy.elements().bfs({
+                roots: `#${originalPoster}`, 
+                visit: function (v, e, y, i, depth) {
+                    v.style('background-color', `hsl(${depth * 150 / maxDepth},80%,55%)`);
+                },
+                directed: false
+            });
         }
     }
 
@@ -145,8 +158,8 @@ $(() => {
         return false;
     });
 
-    $('#save_button').on('click', () => {
-        $('#output').append($('<a/>').attr({ href: cy.png({ scale: 3 }) }).append('Download picture'));
+    $('#save_button').on('click', function() {
+        downloadURI(cy.png({scale: 3}));
     });
 
     $('#animate_graph').on('click', () => {
@@ -172,8 +185,8 @@ $(() => {
             } else {
                 var output = encoder.compile();
                 var url = window.URL.createObjectURL(output);
-                $('#output').empty();
-                $('#output').append($('<a/>').attr({ href: url, download: 'video.webm' }).append('Download video'));
+                downloadURI(url);
+
             }
         }
         addNode(arr, 0);
