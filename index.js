@@ -1,6 +1,5 @@
 var cytoscape = require('cytoscape');
 var _ = require('underscore');
-var cyqtip = require('cytoscape-qtip');
 var weaver = require('weaverjs');
 var cose_bilkent = require('cytoscape-cose-bilkent');
 var dagre = require('cytoscape-dagre');
@@ -12,12 +11,12 @@ var cyforcelayout = require('cytoscape-ngraph.forcelayout');
 var cola = require('cytoscape-cola')
 
 function downloadURI(uri, name) {
-  var link = document.createElement("a");
-  link.download = name;
-  link.href = uri;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+    var link = document.createElement("a");
+    link.download = name;
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 $(() => {
     var cy;
@@ -30,7 +29,6 @@ $(() => {
 
     spread(cytoscape, weaver);
     cyforcelayout(cytoscape);
-    cyqtip(cytoscape);
     panzoom(cytoscape);
 
     function submitForm() {
@@ -135,21 +133,23 @@ $(() => {
         cy.panzoom(defaults);
 
         // Color by distance from original poster using BFS
-        if ($('#color_by_bfs').prop('checked')) {
-            var maxDepth = 1;
-            cy.elements().bfs(`#${originalPoster}`, (function (i, depth) {
+        var maxDepth = 1;
+        cy.elements().bfs({
+            roots: '#'+originalPoster,
+            visit: function (v, e, u, i, depth) {
                 if (depth > maxDepth) { maxDepth = depth; }
-            }), false);
+            },
+            directed: false
+        });
 
-            // Use breadth first search to color nodes
-            cy.elements().bfs({
-                roots: `#${originalPoster}`, 
-                visit: function (v, e, y, i, depth) {
-                    v.style('background-color', `hsl(${depth * 150 / maxDepth},80%,55%)`);
-                },
-                directed: false
-            });
-        }
+        // Use breadth first search to color nodes
+        cy.elements().bfs({
+            roots: `#${originalPoster}`, 
+            visit: function (v, e, y, i, depth) {
+                v.style('background-color', `hsl(${depth * 150 / maxDepth},80%,55%)`);
+            },
+            directed: false
+        });
     }
 
     // Resubmit form
@@ -159,39 +159,8 @@ $(() => {
     });
 
     $('#save_button').on('click', function() {
-        downloadURI(cy.png({scale: 3}));
+        downloadURI(cy.png({scale: 3}), 'screenshot');
     });
-
-    $('#animate_graph').on('click', () => {
-        var animateSpeed = $('#animate_speed').val();
-        var encoder = new Whammy.Video(1000 / animateSpeed);
-        var collection = cy.elements('node');
-        collection.forEach((elt) => {
-            elt.style('visibility', 'hidden');
-        });
-
-        var arr = [];
-        cy.elements().bfs(`#${originalPoster}`, function () {
-            arr.push(this);
-        }, false);
-
-        function addNode(g, i) {
-            if (i < g.length) {
-                setTimeout(() => {
-                    g[i].style('visibility', 'visible');
-                    encoder.add($('[data-id=layer2-node]')[0]);
-                    addNode(g, i + 1);
-                }, animateSpeed);
-            } else {
-                var output = encoder.compile();
-                var url = window.URL.createObjectURL(output);
-                downloadURI(url);
-
-            }
-        }
-        addNode(arr, 0);
-    });
-
 
     submitForm();
 });

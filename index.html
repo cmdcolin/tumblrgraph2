@@ -3,7 +3,6 @@
 <head>
   <meta name="generator" content="HTML Tidy for HTML5 for Mac OS X version 5.2.0">
   <title>TumblrGraph</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.css">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   <!-- smoosh -->
@@ -14,12 +13,8 @@
   </script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js" type="text/javascript">
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.js" type="text/javascript">
-  </script>
 
   <script src="index.js">
-  </script>
-  <script src="js/whammy.js">
   </script>
   <!-- smoosh -->
   <link rel="stylesheet" href="node_modules/cytoscape-panzoom/cytoscape.js-panzoom.css" type="text/css">
@@ -29,8 +24,7 @@
   <h1>TumblrGraph</h1>
   <div style="float:left;">
     <form id="myform" name="myform">
-      <label>Color by distance from root?</label> <input type="checkbox" id="color_by_bfs" checked="checked">
-      <label>Animate speed (ms)</label> <input type="text" id="animate_speed" value="30"> <label>Select layout</label>
+      <label>Select layout</label>
       <select id="layout">
         <option value="cose-bilkent">
           cose-bilkent
@@ -58,9 +52,6 @@
         </option>
         <option value="grid">
           grid
-        </option>
-        <option value="springy">
-          springy
         </option>
         <option value="random">
           random
@@ -104,7 +95,7 @@ userA3 reblogged this from originalposter
 userA2 reblogged this from originalposter
 userA1 reblogged this from originalposter
 originalposter posted this</textarea> <input type="submit" name="Submit"> <input type="button" value="Save as PNG"
-      id="save_button"> <input type="button" value="Save as HTML5 animation" id="animate_graph">
+      id="save_button">
     </form>
   </div>
   <div style="float:left">
