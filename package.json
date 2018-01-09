@@ -1,15 +1,8 @@
 {
   "name": "tumblrgraph2",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Graph tumblr reblogs with cytoscape.js ",
   "main": "index.js",
-  "scripts": {
-    "test": "eslint index.js",
-    "build": "gulp",
-    "debug": "gulp devmode",
-    "watch": "gulp watch",
-    "debugwatch": "gulp watchdev"
-  },
   "keywords": [
     "network",
     "tumblr",
