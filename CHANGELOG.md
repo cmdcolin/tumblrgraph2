@@ -1,3 +1,9 @@
+# Version 1.0.6
+
+- Update to cytoscape.js 3
+- Add euler and klay layouts
+- Remove whammy animation due to bugs
+
 # Version 1.0.5
 
 - Add "viva" ngraph forcelayout
